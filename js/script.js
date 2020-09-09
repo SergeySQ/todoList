@@ -49,7 +49,9 @@ class Todo {
                 completed: false,
                 key: this.generateKey(),
             };
+
             this.todoData.set(newTodo.key, newTodo);
+            this.input.value = '';
             console.log([...this.todoData]);
             this.render();
         }
@@ -81,6 +83,7 @@ class Todo {
         });
         this.render();
     }
+    //анимащка
     animate(elem) {
         elem.style.animation = "scale-animation-delete 2s ease";
     }
@@ -95,7 +98,6 @@ class Todo {
                     setTimeout(() => {
                         this.deleteItem(element);
                     }, 1000);
-
                 } else if (target.matches(".todo-complete")) {
                     this.animate(element);
                     setTimeout(() => {
